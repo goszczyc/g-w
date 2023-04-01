@@ -1,0 +1,337 @@
+.contact {
+  margin-top: 12rem;
+  grid-auto-rows: min-content;
+
+  &__heading {
+    grid-column: 2 / span 7;
+    grid-row: 1;
+    position: relative;
+    margin-bottom: 7rem;
+
+    &::before {
+      @include pseudo;
+      bottom: 100%;
+      left: 0;
+      width: 50px;
+      height: 5px;
+      background-color: $clr-secondary;
+      transform: translateY(-2rem);
+    }
+
+    h2 {
+      font-size: 3.6rem;
+      color: $clr-primary;
+    }
+  }
+
+  &__info {
+    grid-column: 2 / span 3;
+    grid-row: 2;
+    padding-right: 2rem;
+
+    .contact__info-heading {
+      font-size: 2.8rem;
+      font-weight: 600;
+      margin-bottom: 4.8rem;
+    }
+
+    .contact__info-address p,
+    .contact__info-link,
+    .contact__info-phone {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 600;
+      width: fit-content;
+    }
+    .contact__info-address p {
+      line-height: 1.8;
+      margin: 0;
+    }
+    .contact__info-link {
+      color: $clr-secondary;
+      text-decoration: underline;
+      margin-top: 0.9em;
+      transition: color $transition-regular;
+
+      &:hover,
+      &:focus {
+        color: $clr-primary;
+      }
+    }
+    .contact__info-phone {
+      margin-top: 5rem;
+    }
+   
+  }
+
+  &__form {
+    position: relative;
+    grid-column: 5 / span 4;
+    grid-row: 2;
+    padding-inline: 2rem;
+
+    .contact__form-heading {
+      font-size: 2.8rem;
+      font-weight: 600;
+    }
+
+    .contact__form-group {
+      position: relative;
+      margin-top: 4.2rem;
+
+      .wpcf7-form-control-wrap {
+        position: unset;
+      }
+
+      .wpcf7-not-valid-tip {
+        position: absolute;
+        top: 100%;
+        margin-top: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .contact__form-input {
+        display: block;
+        font-size: 1.8rem;
+        line-height: 1.2;
+        font-weight: 600;
+        padding-block: 1.2rem;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #6e7276;
+        outline: none;
+        transition: border $transition-regular;
+
+        &--message {
+          resize: none;
+          overflow: hidden;
+          height: calc(4.8em + 2.4rem);
+        }
+
+        &::placeholder {
+          color: #6e7276;
+          transition: color $transition-regular;
+        }
+
+        &:active,
+        &:focus {
+          border-color: $clr-secondary;
+          &::placeholder {
+            color: $clr-secondary;
+          }
+        }
+      }
+
+      &--acceptance {
+        margin-bottom: 3.5rem;
+        .wpcf7-list-item {
+          margin: 0;
+
+          &-label {
+            display: block;
+            position: relative;
+            padding-left: 3rem;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            cursor: pointer;
+
+            &::before {
+              @include pseudo;
+              top: 0;
+              left: 0;
+              width: 2rem;
+              aspect-ratio: 1;
+              border: 1px solid #b2b4b6;
+              transition: all $transition-fast;
+            }
+            &::after {
+              @include pseudo;
+              top: 1rem;
+              left: 1rem;
+              width: 1rem;
+              height: 0.7rem;
+              border-bottom: 3px solid $clr-primary;
+              border-left: 3px solid $clr-primary;
+              transform: translate(-50%, -66%) rotate(-45deg) scale(0);
+              transition: transform $transition-fast ease-in;
+            }
+          }
+        }
+
+        .contact__form-acceptance {
+          display: none;
+
+          &:checked ~ .wpcf7-list-item-label {
+            &::before {
+              background-color: $clr-secondary;
+              border-color: $clr-primary;
+            }
+            &::after {
+              transform: translate(-50%, -66%) rotate(-45deg) scale(1);
+              transition: transform $transition-fast
+                cubic-bezier(0.29, 0.64, 0.82, 1.52);
+            }
+          }
+        }
+      }
+    }
+
+    .wpcf7-spinner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      background-color: rgba($color: #fff, $alpha: 0.8);
+      backdrop-filter: blur(3px);
+      border-radius: unset;
+      opacity: 1;
+
+      &::before {
+        top: 50%;
+        left: 50%;
+        width: 75px;
+        height: 75px;
+        border-top: 6px solid $clr-primary;
+        border-bottom: 6px solid $clr-primary;
+        border-right: 6px solid transparent;
+        border-left: 6px solid transparent;
+        transform-origin: center;
+        transform: translate(-50%, -50%);
+        animation: spinner 1000ms linear infinite;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 83px;
+        height: 83px;
+        border-left: 6px solid $clr-secondary;
+        border-right: 6px solid $clr-secondary;
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+        border-radius: 50%;
+        transform-origin: center;
+        transform: translate(-50%, -50%);
+        animation: spinner 1000ms linear infinite;
+      }
+    }
+
+    .invalid .wpcf7-response-output {
+      font-size: 1.4rem;
+      border: none;
+      padding: 0;
+      margin: 0;
+      margin-top: 1rem;
+      color: #dc8100;
+    }
+
+    .sent .wpcf7-response-output {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      inset: 0;
+      font-size: 2rem;
+      font-weight: 600;
+      color: $clr-primary;
+      background-color: #fff;
+      margin: 0;
+      padding: 2rem;
+      border-color: $clr-secondary;
+    }
+  }
+
+  &__photo {
+    grid-column: 10 / span 4;
+    grid-row: 1 / span 2;
+    padding-left: 2rem;
+    
+    img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 0.85;
+      object-fit: cover;
+      box-shadow: -2rem 2rem $clr-tertiary;
+    }
+  }
+  @media (max-width: 1200px) {
+    &__form {
+      grid-column: 5/span 5;
+    }
+  }
+  @media (max-width: 992px) {
+    &__info {
+      margin-top: 4rem;
+    }
+
+    &__form {
+      grid-column: 6/-2;
+      margin-top: 4rem;
+    }
+    &__photo {
+      grid-row: 1/2;
+    }
+  }
+  @media (max-width: 768px) {
+    &__heading {
+      h2 {
+        font-size: 3rem;
+      }
+    }
+    &__info {
+      grid-column: 2/span 4;
+    }
+
+    &__form {
+      grid-column: 7/-2;
+    }
+  }
+  @media (max-width: 768px) {
+    &__heading {
+      h2 {
+        font-size: 3rem;
+      }
+    }
+    &__info {
+      grid-column: 2/span 4;
+    }
+
+    &__form {
+      grid-column: 7/-2;
+    }
+  }
+  @media (max-width: 576px) {
+    &__heading {
+      grid-column: 2/-2;
+      padding: 0;
+    }
+    &__photo {
+      display: none;
+    }
+    &__info {
+      grid-column: 2/-2;
+      grid-row: 2;
+      padding: 0;
+    }
+
+    &__form {
+      grid-column: 2/-2;
+      grid-row: 3;
+      padding: 0;
+    }
+  }
+
+}
+
+@keyframes spinner {
+  0% {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

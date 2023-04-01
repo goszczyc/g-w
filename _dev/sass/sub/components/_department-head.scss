@@ -1,0 +1,67 @@
+.department-head {
+  max-width: 85rem;
+
+  .department-head__heading {
+    h2 {
+      @include heading-primary;
+      margin-bottom: 3.5rem;
+    }
+    p {
+      font-size: 1.6rem;
+      line-height: 1.4;
+      font-weight: 600;
+      margin-bottom: 4rem;
+    }
+  }
+
+  .department-head__photo {
+    margin-bottom: 1.8rem;
+  }
+  .department-head__name {
+    font-size: 2.6rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #000;
+    margin-bottom: 0.6rem;
+  }
+  .department-head__speciality {
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1.6rem;
+  }
+
+  .department-head__email,
+  .department-head__phone {
+    display: flex;
+    align-items: center;
+    img {
+      width: 2.3rem;
+      margin-right: 2rem;
+      margin-bottom: 0;
+    }
+  }
+
+  .department-head__phone {
+    line-height: 1;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    transition: color $transition-regular;
+    
+    &:hover {
+      color: $clr-secondary;
+    }
+  }
+  
+  .department-head__email {
+    text-decoration: underline;
+    font-weight: 800;
+    color: $clr-primary;
+    transition: color $transition-regular;
+    margin-bottom: 2rem;
+    
+    &:hover {
+      color: $clr-secondary;
+    }
+  }
+}

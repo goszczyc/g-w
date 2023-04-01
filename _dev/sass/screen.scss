@@ -1,0 +1,41 @@
+@import "sub/fonts";
+@import "sub/mixins";
+@import "sub/variables";
+@import "sub/normalize";
+@import "sub/layout";
+@import "sub/universal";
+@import "sub/header";
+@import "sub/footer";
+
+// Template Parts
+@import "sub/template-parts/banner";
+@import "sub/template-parts/banner-main";
+@import "sub/template-parts/banner-news";
+@import "sub/template-parts/about-us-section";
+@import "sub/template-parts/about-us-icons";
+@import "sub/template-parts/contact";
+@import "sub/template-parts/blog-posts";
+@import "sub/template-parts/blog-cards";
+@import "sub/template-parts/aside-layout";
+@import "sub/template-parts/specialities";
+@import "sub/template-parts/team";
+@import "sub/template-parts/recruitment";
+@import "sub/template-parts/recruit-section";
+@import "sub/template-parts/job-offers";
+
+//COMPONENTS
+@import "sub/components/department-head";
+
+
+// SUB-COMPONENTS
+
+
+//PLUGINS
+@import "sub/slick/slick.scss";
+
+
+//PARTIALS
+
+
+// Cookies
+@import "sub/cookies/divante.cookies";

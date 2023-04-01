@@ -1,0 +1,293 @@
+.aside-layout {
+  &__menu-background {
+    grid-column: 1 / span 4;
+    grid-row: 1;
+    background-color: $clr-primary;
+  }
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2 / span 3;
+    grid-row: 1;
+    color: #fff;
+    padding-top: 2.3rem;
+    padding-right: 2rem;
+
+    .aside-layout__menu-title {
+      color: #fff;
+      font-size: 2rem;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .aside-layout__menu-item,
+    a {
+      position: relative;
+      font-size: 1.6rem;
+      color: #fff;
+      background: none;
+      width: fit-content;
+      border: none;
+      outline: none;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.3rem;
+      cursor: pointer;
+      overflow: hidden;
+      transition: padding $transition-regular;
+
+      &::before {
+        @include pseudo;
+        top: 50%;
+        left: 0;
+        background-color: $clr-secondary;
+        width: 10px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        transform: translate(-100%, -50%);
+        transition: transform $transition-regular;
+      }
+
+      &::after {
+        @include pseudo;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $clr-secondary;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: transform $transition-regular;
+      }
+
+      &:hover,
+      &:focus,
+      &--current {
+        padding-left: 16px;
+        &::before {
+          transform: translate(0, -50%);
+        }
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+  &__content-background {
+    grid-column: 5/-1;
+    grid-row: 1;
+    position: relative;
+    background-image: url("../images/pattern-bg.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    z-index: -2;
+  }
+  &__cards {
+    grid-column: 6/-2;
+    grid-row: 1;
+    padding-block: 2rem;
+
+    .aside-layout__cards-heading {
+      h2 {
+        position: relative;
+        font-size: 3.6rem;
+        columns: $clr-primary;
+        margin-top: 8rem;
+        margin-bottom: 3rem;
+
+        &::before {
+          @include pseudo;
+          bottom: 100%;
+          left: 0;
+          width: 50px;
+          height: 5px;
+          background-color: $clr-secondary;
+          transform: translateY(-2rem);
+        }
+      }
+      p {
+        font-size: 1.6rem;
+        font-weight: 600;
+        line-height: 1.8;
+        margin-bottom: 4rem;
+      }
+    }
+
+    .aside-layout__card {
+      position: relative;
+      padding-block: 4rem;
+      border: 1px solid #e4e4e4;
+      transition: all $transition-regular;
+
+      &-thumbnail-container {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        margin-bottom: 2rem;
+        overflow: hidden;
+
+        .aside-layout__card-thumbnail {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          transition: transform $transition-slow;
+        }
+      }
+
+      &-data {
+        .aside-layout__card-author {
+          font-size: 1rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          margin-bottom: 2rem;
+        }
+        .aside-layout__card-title {
+          font-size: 2.2rem;
+          line-height: 1.5;
+          font-weight: 1000;
+          color: $clr-primary;
+          margin-bottom: 2.8rem;
+          transition: color $transition-regular;
+        }
+        .aside-layout__card-excerpt {
+          font-size: 1.6rem;
+          font-weight: 600;
+          line-height: 1.6;
+          margin-bottom: 2.8rem;
+        }
+        .aside-layout__card-date {
+          font-size: 1.6rem;
+          font-weight: 600;
+          line-height: 1.6;
+        }
+      }
+
+      &::before {
+        @include pseudo;
+        inset: 0;
+        background-color: rgba($color: #ffffff, $alpha: 0.6);
+        backdrop-filter: blur(4px);
+        opacity: 0;
+        transition: opacity $transition-regular;
+        z-index: -1;
+      }
+
+      &:hover,
+      &:focus,
+      &:focus-within {
+        border-color: $clr-primary;
+
+        .aside-layout__card-thumbnail-container {
+          .aside-layout__card-thumbnail {
+            transform: scale(1.05);
+          }
+        }
+
+        .aside-layout__card-data {
+          .aside-layout__card-title {
+            color: $clr-secondary;
+          }
+        }
+
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__content {
+    grid-column: 6/-2;
+    grid-row: 1;
+    padding: 6rem 2rem;
+
+    * {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+    p {
+      text-align: justify;
+    }
+    ul,
+    ol {
+      padding-left: 2.5rem;
+      li {
+        margin-bottom: 0.5rem;
+      }
+    }
+    h1 {
+      text-transform: uppercase;
+    }
+    h1,
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 4.6rem;
+    }
+    h3 {
+      font-size: 2.2rem;
+      margin-bottom: 3.6rem;
+    }
+    h4 {
+      font-size: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      max-height: 100%;
+      object-fit: cover;
+    }
+    figure {
+      max-width: 50%;
+    }
+    div + * + * {
+      clear: both;
+    }
+  }
+
+  @media (max-width: 992px) {
+    &__menu-background {
+      grid-column: 1/-1;
+      grid-row: 1;
+    }
+    &__menu {
+      grid-column: 2/-2;
+      grid-row: 1;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    &__cards-background {
+      grid-column: 1/-1;
+      grid-row: 2;
+    }
+    &__cards {
+      grid-column: 2/-2;
+      grid-row: 2;
+    }
+    &__content-background {
+      grid-column: 1/-1;
+      grid-row: 2;
+    }
+    &__content {
+      grid-column: 2/-2;
+      grid-row: 2;
+    }
+  }
+  @media (max-width: 768px) {
+    &__content {
+      figure.alignright,
+      figure.alignleft {
+        max-width: 100%;
+        float: unset;
+        margin: 1rem 0;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

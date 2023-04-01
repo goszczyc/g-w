@@ -1,0 +1,113 @@
+.banner {
+  position: relative;
+  height: clamp(50rem, 100vh, 100rem);
+  grid-template-rows: repeat(3, 1fr);
+  margin-bottom: 16rem;
+
+  &__background-image {
+    position: relative;
+    grid-column: 3/-1;
+    grid-row: 1/-1;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    margin-right: 20px;
+    z-index: -1;
+
+    &::before {
+      @include pseudo;
+      inset: 0;
+      background: rgba($color: #fff, $alpha: 0.2);
+    }
+  }
+
+  &__heading {
+    grid-column: 2/-2;
+    grid-row: 2;
+    h1 {
+      font-family: $font-secondary;
+      font-size: 6.6rem;
+      color: $clr-primary;
+      margin-bottom: 4.6rem;
+    }
+
+    .banner__heading-links {
+      display: flex;
+      gap: 3.5rem;
+    }
+  }
+  &__subheading {
+    grid-column: 2/6;
+    grid-row: 3;
+    background-color: #fff;
+    padding: 4rem 6rem;
+    transform: translateY(50%);
+
+    h3 {
+      font-size: 2.4rem;
+      text-transform: uppercase;
+      line-height: 1.2;
+      margin-bottom: 3rem;
+    }
+    p {
+      font-size: 1.6rem;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+  }
+
+
+  @media (max-width: 1500px) {
+    &__subheading {
+      grid-column: 2/8;
+    }
+  }
+  @media (max-width: 992px) {
+    &__heading {
+      h1 {
+        font-size: 5rem;
+      }
+    }
+    &__subheading {
+      grid-column: 2/10;
+    }
+  }
+  @media (max-width: 768px) {
+    &__background-image {
+      grid-column: 3/-2;
+      margin: 0;
+      &::before {
+        background: rgba($color: #fff, $alpha: 0.4);
+      }
+    }
+    &__heading {
+      h1 {
+        font-size: 4.6rem;
+      }
+    }
+    &__subheading {
+      grid-column: 2/10;
+      padding: 4rem 2rem;
+    }
+  }
+  @media (max-width: 576px) {
+    &__heading {
+      h1 {
+        font-size: 4rem;
+      }
+    }
+    &__subheading {
+      grid-column: 2/-2;
+      padding: 4rem 0;
+      transform: translateY(4rem);
+    }
+  }
+  @media (max-width: 320px) {
+    &__heading {
+      .banner__heading-links {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+}

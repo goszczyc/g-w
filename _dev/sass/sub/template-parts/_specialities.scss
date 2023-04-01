@@ -1,0 +1,114 @@
+.specialities {
+  position: relative;
+  padding-block: 4rem;
+  background-image: url("../images/pattern-bg.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  &::before {
+    @include pseudo;
+    inset: 0;
+    background-image: linear-gradient(rgba($color: #fff, $alpha: 1) 0%, rgba($color: #fff, $alpha: 0)  5%, rgba($color: #fff, $alpha: 0) 95%, rgba($color: #fff, $alpha: 1) 100%);
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 4rem;
+
+    h2 {
+      position: relative;
+      font-size: 3.6rem;
+      color: $clr-primary;
+      margin-bottom: 4rem;
+
+      &::before {
+        @include pseudo;
+        bottom: 100%;
+        left: 50%;
+        width: 50px;
+        height: 5px;
+        background-color: $clr-secondary;
+        transform: translate(-50%, -2rem);
+      }
+    }
+
+    p {
+      font-size: 1.6rem;
+      line-height: 1.9;
+      max-width: 82rem;
+    }
+
+    &--secondary {
+      h2 {
+        @include heading-primary;
+      }
+    }
+  }
+
+  &__cards {
+    margin-bottom: 4rem;
+
+    .specialities__card {
+      position: relative;
+      padding: 18rem 3.5rem 4.5rem;
+      box-shadow: -20px 20px $clr-tertiary;
+      overflow: hidden;
+      height: 100%;
+
+      &-thumbnail {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform $transition-slow;
+      }
+      &-content {
+        position: relative;
+        z-index: 2;
+        .specialities__card-title {
+          font-size: 2.4rem;
+          font-weight: 1000;
+          color: #fff;
+          margin-bottom: 2rem;
+          transition: transform $transition-slow
+        }
+        .specialities__card-excerpt {
+          font-size: 1.6rem;
+          font-weight: 600;
+          line-height: 1.5;
+          color: #fff;
+          margin-bottom: 4rem;
+          transition: transform $transition-slow
+        }
+      }
+      &::before {
+        @include pseudo;
+        inset: 0;
+        background-color: rgba($color: #000000, $alpha: 0.6);
+        transition: background $transition-slow;
+        z-index: 2;
+      }
+      &:hover,
+      &:focus-within {
+        .specialities__card-thumbnail {
+          transform: scale(1.05);
+        }
+        .specialities__card-title,
+        .specialities__card-excerpt {
+          transform: translateY(-30px);
+        }
+
+        &::before {
+          background-color: rgba($color: #000000, $alpha: 0.8);
+        }
+      }
+    }
+  }
+}

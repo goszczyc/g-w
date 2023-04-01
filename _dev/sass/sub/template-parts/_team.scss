@@ -1,0 +1,43 @@
+.team {
+  margin-block: 4rem;
+
+  &__member {
+    .team__member-photo {
+      margin-bottom: 1.8rem;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+    .team__member-name {
+      color: $clr-primary;
+      font-size: 2.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.2rem;
+    }
+    .team__member-speciality,
+    .team__member-phone,
+    .team__member-email {
+      color: $clr-primary;
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.6rem;
+    }
+
+    .team__member-phone,
+    .team__member-email {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 2.3rem;
+        vertical-align: middle;
+        margin-right: 2rem;
+      }
+
+      &:hover {
+        color: $clr-secondary;
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+.job-offers {
+  margin-block: 4rem;
+
+  &__heading {
+    @include heading-primary;
+    padding-inline: 2rem;
+    margin-bottom: 6rem;
+  }
+
+  &__offer {
+    padding-inline: 20px;
+    margin-bottom: 4rem;
+
+    .job-offers__offer-name {
+      position: relative;
+      color: $clr-primary;
+      font-size: 3.6rem;
+      font-weight: 600;
+      margin-bottom: 3.6rem;
+
+      &::before {
+        @include pseudo;
+        top: 0.5em;
+        left: -20px;
+        width: 5px;
+        height: 1.2em;
+        background-color: $clr-secondary;
+        transform: translateY(-50%);
+      }
+    }
+
+    .job-offers__offer-description {
+      p {
+        font-size: 2.2rem;
+        font-weight: 600;
+        margin-bottom: 4rem;
+        max-width: 110rem;
+      }
+      ul {
+        li {
+          position: relative;
+          font-size: 2.2rem;
+          margin-bottom: 4rem;
+          padding-left: 22px;
+          list-style: none;
+
+          &::before {
+            @include pseudo;
+            top: 0.5em;
+            left: 0;
+            width: 9px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-color: $clr-secondary;
+            transform: translateY(-50%);
+          }
+        }
+      }
+    }
+
+    .job-offers__offer-email {
+      color: $clr-secondary;
+      font-size: 2.2rem;
+      font-weight: 800;
+      text-decoration: underline;
+      transition: color $transition-regular;
+
+      &:hover {
+        color: $clr-primary;
+      }
+    }
+  }
+}

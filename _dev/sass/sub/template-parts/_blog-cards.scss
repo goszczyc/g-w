@@ -1,0 +1,99 @@
+.blog-cards {
+  margin-block: 4rem;
+
+  &__heading {
+    h2 {
+      @include heading-primary;
+      margin-bottom: 4rem;
+    }
+
+    p {
+      font-size: 1.6rem;
+      line-height: 1.8;
+      margin-bottom: 6rem;
+    }
+  }
+
+  &__card {
+    position: relative;
+    padding-block: 4rem;
+    border: 1px solid #e4e4e4;
+    transition: all $transition-regular;
+    margin-bottom: 6rem;
+
+    &-thumbnail-container {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16/9;
+      margin-bottom: 2rem;
+      overflow: hidden;
+
+      .blog-cards__card-thumbnail {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        transition: transform $transition-slow;
+      }
+    }
+
+    &-data {
+      .blog-cards__card-author {
+        font-size: 1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+      }
+      .blog-cards__card-title {
+        font-size: 2.2rem;
+        line-height: 1.5;
+        font-weight: 1000;
+        color: $clr-primary;
+        margin-bottom: 2.8rem;
+        transition: color $transition-regular;
+      }
+      .blog-cards__card-excerpt {
+        font-size: 1.6rem;
+        font-weight: 600;
+        line-height: 1.6;
+        margin-bottom: 2.8rem;
+      }
+      .blog-cards__card-date {
+        font-size: 1.6rem;
+        font-weight: 600;
+        line-height: 1.6;
+      }
+    }
+
+    &::before {
+      @include pseudo;
+      inset: 0;
+      background-color: rgba($color: #ffffff, $alpha: 0.6);
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      transition: opacity $transition-regular;
+      z-index: -1;
+    }
+
+    &:hover,
+    &:focus,
+    &:focus-within {
+      border-color: $clr-primary;
+
+      .blog-cards__card-thumbnail-container {
+        .blog-cards__card-thumbnail {
+          transform: scale(1.05);
+        }
+      }
+
+      .blog-cards__card-data {
+        .blog-cards__card-title {
+          color: $clr-secondary;
+        }
+      }
+
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+}
